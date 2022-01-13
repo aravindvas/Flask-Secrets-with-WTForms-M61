@@ -1,0 +1,33 @@
+
+{% block title %}
+Login
+{% endblock %}
+
+
+{% extends 'bootstrap/base.html' %}
+{% block title %}
+	Login tit
+{% endblock %}
+
+{% block content %}
+        <div class="container">
+		<h1>Login</h1>
+        <form method="post" action="{{ url_for('login') }}" novalidate>
+			{{ form.csrf_token }}
+			<p>
+				{{ form.eml.label }} <br> {{ form.eml(size=30) }}
+				{% for er in form.eml.errors %}
+				<span style="color:red">{{ er }}</span>
+				{% endfor %}
+			</p>
+			<p>
+				{{ form.psd.label }} <br> {{ form.psd(size=30) }}
+				{% for er2 in form.psd.errors %}
+				<span style="color:red">{{ er2 }}</span>
+				{% endfor %}
+			</p>
+				{{ form.sbt }}
+		</form>
+        </div>
+	</body>
+</html>
